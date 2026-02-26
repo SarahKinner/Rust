@@ -29,6 +29,7 @@ fn main() {
         "cryptography", "algorithm", "integration", "concurrency", "documentation"
     ];
 
+    //What the menu is gonna look like
     println!("Welcome to Typing Practice!");
     println!("Select difficulty:");
     pritnln!("1. Easy");
