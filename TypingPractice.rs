@@ -2,6 +2,7 @@
 
 fn main() {
     
+    //Words that are used for easy difficulty
     let easy_words = vec![
         "cat", "dog", "sun", "tree", "book",
         "pen", "cup", "ball", "hat", "fish",
@@ -10,6 +11,7 @@ fn main() {
         "toy", "ring", "cup", "bag", "rain"
     ];
 
+    //Words that are used for medium difficulty
     let medium_words = vec![
         "keyboard", "window", "coffee", "pencil", "flower",
         "orange", "garden", "butter", "laptop", "banana",
@@ -18,6 +20,7 @@ fn main() {
         "travel", "violet", "wallet", "yellow", "zigzag"
     ];
 
+    //Words that are used for hard difficulty
     let hard_words = vec![
         "ownership", "borrowing", "match", "exquisite", "programming",
         "architecture", "development", "sophisticated", "assignment", "synchronize",
