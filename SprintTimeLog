@@ -29,7 +29,7 @@ The expected minimum amount of time each Sprint for each category is as follows:
 |2/23/26   |10:15 AM  |MTG     |Made a plan and a goal for this sprint      |60           |
 |2/24/26   |7:17 PM   |TP      |Just work on two sprites and then upload it to github
                                                                             |242          |
-|2/26/26   |12:15 AM  |IM      |                                            |             |
+|2/26/26   |12:15 AM  |IM      |Opened up the project, connect it to github, made the vector lists needed, made a menu and grab the list that matches the user input also failsafes                                       |120          |
 |          |          |        |                                            |             |
 |          |          |        |                                            |             |
 |          |          |        |                                            |             |
@@ -40,7 +40,7 @@ _Note: Add more rows as needed._
 
 |Categroy                       |Total Time (Hours:Minutes)|
 |-------------------------------|:------------------------:|
-|IM - Individual Module         |                          |
+|IM - Individual Module         |          2:00            |
 |TP - Team Project              |          4:02            |
 |MTG - Class Meetings           |          1:00            |
 |**TOTAL**                      |                          |
