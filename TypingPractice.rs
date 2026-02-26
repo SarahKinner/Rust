@@ -32,7 +32,7 @@ fn main() {
     //What the menu is gonna look like
     println!("Welcome to Typing Practice!");
     println!("Select difficulty:");
-    pritnln!("1. Easy");
+    println!("1. Easy");
     println!("2. Medium");
     println!("3. Hard");
 
@@ -45,6 +45,18 @@ fn main() {
     //Print out the choice that the user picked
     let choice = choice.trim();
     println!("You chose: {}", choice);
+
+    // Matches the user input to pick the right word list difficulty
+    let selected_words = match choice {
+        "1" => &easy_words,
+        "2" => &medium_words,
+        "3" => &hard_words,
+        _ => {
+            println!("Bro cannot type something valid. If you can't follow some simple instructions Imma just give you easy difficulty.");
+            &easy_words
+        }
+    };
+    println!("Words for this session: {:?}", selected_words);
 }
 
 
