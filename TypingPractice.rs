@@ -29,8 +29,11 @@ fn main() {
         "cryptography", "algorithm", "integration", "concurrency", "documentation"
     ];
 
-
-
+    println!("Welcome to Typing Practice!");
+    println!("Select difficulty:");
+    pritnln!("1. Easy");
+    println!("2. Medium");
+    println!("3. Hard");
 
 }
 
