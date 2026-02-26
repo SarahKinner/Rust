@@ -39,3 +39,7 @@ The following items I plan to fix, improve, and/or add to this project in the fu
 * [ ] First thing here
 * [ ]
 * [ ]
+
+
+
+Note for later: Had to use this code to make it work: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
