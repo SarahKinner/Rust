@@ -36,6 +36,15 @@ fn main() {
     println!("2. Medium");
     println!("3. Hard");
 
+    //Get user input
+    let mut choice = String::new();
+    std::io::stdin()
+        .read_line(&mut choice)
+        .expect("Failed to read input");
+
+    //Print out the choice that the user picked
+    let choice = choice.trim();
+    println!("You chose: {}", choice);
 }
 
 
