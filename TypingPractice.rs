@@ -1,5 +1,9 @@
 //Typing Practice
 
+//For the words to get randomly chosen
+use rand::Rng;
+use std::io;
+
 fn main() {
     
     //Words that are used for easy difficulty
@@ -56,7 +60,19 @@ fn main() {
             &easy_words
         }
     };
-    println!("Words for this session: {:?}", selected_words);
+    
+    //Variables that are gonna be stored for the sessions
+    let mut attempts = 0;
+    let mut score = 0;
+
+    println!("Type the words that are shown on the screen. Type 'done' when you want to finish this session.")
+
+    //Inner loop used for the session
+    loop {
+        //Program picks a random word that the user needs to type
+        let random_index = rand::thread_rng().gen_range(0..selected_words.len());
+        let word = selected_words[random_index];
+    }
 }
 
 
