@@ -1,12 +1,11 @@
-//Typing Practice
+// Typing Practice
 
-//For the words to get randomly chosen
-use rand::Rng;
+use rand::Rng;           // for gen_range
+use rand::rngs::ThreadRng; // for thread_rng
 use std::io;
 
 fn main() {
-    
-    //Words that are used for easy difficulty
+    // Words that are used for easy difficulty
     let easy_words = vec![
         "cat", "dog", "sun", "tree", "book",
         "pen", "cup", "ball", "hat", "fish",
@@ -15,7 +14,7 @@ fn main() {
         "toy", "ring", "cup", "bag", "rain"
     ];
 
-    //Words that are used for medium difficulty
+    // Words that are used for medium difficulty
     let medium_words = vec![
         "keyboard", "window", "coffee", "pencil", "flower",
         "orange", "garden", "butter", "laptop", "banana",
@@ -24,7 +23,7 @@ fn main() {
         "travel", "violet", "wallet", "yellow", "zigzag"
     ];
 
-    //Words that are used for hard difficulty
+    // Words that are used for hard difficulty
     let hard_words = vec![
         "ownership", "borrowing", "match", "exquisite", "programming",
         "architecture", "development", "sophisticated", "assignment", "synchronize",
@@ -33,20 +32,19 @@ fn main() {
         "cryptography", "algorithm", "integration", "concurrency", "documentation"
     ];
 
-    //What the menu is gonna look like
+    // What the menu is gonna look like
     println!("Welcome to Typing Practice!");
     println!("Select difficulty:");
     println!("1. Easy");
     println!("2. Medium");
     println!("3. Hard");
 
-    //Get user input
+    // Get user input
     let mut choice = String::new();
-    std::io::stdin()
+    io::stdin()
         .read_line(&mut choice)
         .expect("Failed to read input");
 
-    //Print out the choice that the user picked
     let choice = choice.trim();
     println!("You chose: {}", choice);
 
@@ -60,23 +58,25 @@ fn main() {
             &easy_words
         }
     };
-    
-    //Variables that are gonna be stored for the sessions
+
+    // Variables for session
     let mut attempts = 0;
     let mut score = 0;
 
     println!("Type the words that are shown on the screen. Type 'done' when you want to finish this session.");
 
-    //Inner loop used for the session
+    // Inner loop used for the session
+    let mut rng: ThreadRng = rand::thread_rng(); // initialize random generator once
+
     loop {
-        //Program picks a random word that the user needs to type
-        let random_index = rand::thread_rng().gen_range(0..selected_words.len());
+        // Pick a random word
+        let random_index = rng.gen_range(0..selected_words.len());
         let word = selected_words[random_index];
 
-        //Prints out the word that got randomly chosen
+        // Print the word
         println!("Word: {}", word);
 
-        //Grabs user input
+        // Grab user input
         let mut input = String::new();
         io::stdin()
             .read_line(&mut input)
@@ -84,12 +84,12 @@ fn main() {
 
         let input = input.trim();
 
-        //Exits the session once the user types in done
-        if input == "done" {
+        // Exit session if user types 'done'
+        if input.eq_ignore_ascii_case("done") {
             break;
         }
 
-        //Checks if what the user typed in matches the word that was chosen
+        // Check if input matches the word
         if input == word {
             println!("Correctamundo!");
             score += 1;
@@ -98,9 +98,7 @@ fn main() {
         }
 
         attempts += 1;
-
     }
 
-    //Prints out how much the user got correct after the session ends
     println!("Session complete! You got {}/{} correct.", score, attempts);
 }
