@@ -72,6 +72,22 @@ fn main() {
         //Program picks a random word that the user needs to type
         let random_index = rand::thread_rng().gen_range(0..selected_words.len());
         let word = selected_words[random_index];
+
+        //Prints out the word that got randomly chosen
+        println!("Word: {}", word);
+
+        //Grabs user input
+        let mut input = String::new();
+        io:stdin()
+            .read_line(&mut input)
+            .expect("Failed to read input");
+
+        let input = input.trim();
+
+        //Exits the session once the user types in done
+        if input == "done" {
+            break;
+        }
     }
 }
 
