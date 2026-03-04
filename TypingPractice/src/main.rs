@@ -4,6 +4,11 @@
 use rand::Rng;
 use std::io;
 
+fn get_random_word<'a>(words: &'a Vec<&'a str>) -> &'a str {
+    let random_index = rand::thread_rng().gen_range(0..words.len());
+    words[random_index]
+}
+
 fn main() {
     
     //Words that are used for easy difficulty
@@ -70,8 +75,7 @@ fn main() {
     //Inner loop used for the session
     loop {
         //Program picks a random word that the user needs to type
-        let random_index = rand::thread_rng().gen_range(0..selected_words.len());
-        let word = selected_words[random_index];
+        let word = get_random_word(selected_words);
 
         //Prints out the word that got randomly chosen
         println!("Word: {}", word);

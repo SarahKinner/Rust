@@ -47,5 +47,3 @@ Note for later: Had to use this code to make it work: curl --proto '=https' --tl
 cd /Users/sarahkinner/Rust
 cargo new typing_practice
 cd typing_practice
-
-cargo add rand
