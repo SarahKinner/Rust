@@ -3,6 +3,7 @@
 //For the words to get randomly chosen
 use rand::seq::SliceRandom;
 use rand::thread_rng;
+use std::time::Instant;
 use std::io;
 
 fn run_typing_session(words: &Vec<&str>) {
@@ -16,6 +17,9 @@ fn run_typing_session(words: &Vec<&str>) {
     lesson_words.shuffle(&mut thread_rng());
 
     println!("Type the words that are shown on the screen:");
+
+    //Starts the timer for the lesson
+    let start_time = Instant::now();
 
     for word in &lesson_words {
         //Prints out the word that got randomly chosen
@@ -42,8 +46,14 @@ fn run_typing_session(words: &Vec<&str>) {
 
     }
 
+    //Stops the timer
+    let duration = start_time.elapsed();
+
     //Prints out how much the user got correct after the session ends
     println!("Session complete! You got {}/{} correct.", score, attempts);
+
+    //Prints how long it took to complete the session
+    println!("Time taken: {:.2} seconds", duration.as_secs_f64());
 
     //Prints out the words you got wrong
     if !wrong_words.is_empty() {
