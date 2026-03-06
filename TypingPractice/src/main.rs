@@ -1,26 +1,22 @@
 //Typing Practice
 
 //For the words to get randomly chosen
-use rand::Rng;
+use rand::seq::SliceRandom;
+use rand::thread_rng;
 use std::io;
-
-fn get_random_word<'a>(words: &'a Vec<&'a str>) -> &'a str {
-    let random_index = rand::thread_rng().gen_range(0..words.len());
-    words[random_index]
-}
 
 fn run_typing_session(words: &Vec<&str>) {
     //Variables that are gonna be stored for the sessions
     let mut attempts = 0;
     let mut score = 0;
 
-    println!("Type the words that are shown on the screen. Type 'done' when you want to finish this session.");
+    //shuffles the word list and goes through it once so no repeated words
+    let mut lesson_words = words.clone();
+    lesson_words.shuffle(&mut thread_rng());
 
-    //Inner loop used for the session
-    loop {
-        //Program picks a random word that the user needs to type
-        let word = get_random_word(words);
+    println!("Type the words that are shown on the screen:");
 
+    for word in &lesson_words {
         //Prints out the word that got randomly chosen
         println!("Word: {}", word);
 
@@ -32,13 +28,8 @@ fn run_typing_session(words: &Vec<&str>) {
 
         let input = input.trim();
 
-        //Exits the session once the user types in done
-        if input == "done" {
-            break;
-        }
-
         //Checks if what the user typed in matches the word that was chosen
-        if input == word {
+        if input == *word {
             println!("Correctamundo!");
             score += 1;
         } else {
