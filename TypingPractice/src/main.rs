@@ -55,6 +55,15 @@ fn run_typing_session(words: &Vec<&str>) {
     //Prints how long it took to complete the session
     println!("Time taken: {:.2} seconds", duration.as_secs_f64());
 
+    //Calculate the accuracy and WPM
+    let accuracy = (score as f64 / attempts as f64) * 100.0;
+    let minutes = duration.as_secs_f64() / 60.0;
+    let wpm = score as f64 / minutes;
+
+    //Prints out the accuracy and WPM
+    println!("Accuracy: {:.2}%", accuracy);
+    println!("Words per minute: {:.2}", wpm);
+
     //Prints out the words you got wrong
     if !wrong_words.is_empty() {
         println!("Words you got wrong:");
