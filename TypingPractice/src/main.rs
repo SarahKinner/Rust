@@ -9,6 +9,7 @@ fn run_typing_session(words: &Vec<&str>) {
     //Variables that are gonna be stored for the sessions
     let mut attempts = 0;
     let mut score = 0;
+    let mut wrong_words: Vec<&str> = Vec::new();
 
     //shuffles the word list and goes through it once so no repeated words
     let mut lesson_words = words.clone();
@@ -28,12 +29,13 @@ fn run_typing_session(words: &Vec<&str>) {
 
         let input = input.trim();
 
-        //Checks if what the user typed in matches the word that was chosen
+        //Checks if what the user typed in matches the word that was chosen if wrong it'll store the wrong word
         if input == *word {
             println!("Correctamundo!");
             score += 1;
         } else {
             println!("Wrong brochacho!");
+            wrong_words.push(word);
         }
 
         attempts += 1;
@@ -42,6 +44,16 @@ fn run_typing_session(words: &Vec<&str>) {
 
     //Prints out how much the user got correct after the session ends
     println!("Session complete! You got {}/{} correct.", score, attempts);
+
+    //Prints out the words you got wrong
+    if !wrong_words.is_empty() {
+        println!("Words you got wrong:");
+        for w in wrong_words {
+            println!("- {}", w);
+        }
+    } else {
+        println!("Amazing! You got all words correct!");
+    }
 }
 
 fn main() {
