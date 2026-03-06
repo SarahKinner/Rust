@@ -11,6 +11,8 @@ fn run_typing_session(words: &Vec<&str>) {
     let mut attempts = 0;
     let mut score = 0;
     let mut wrong_words: Vec<&str> = Vec::new();
+    let mut total_chars = 0;
+    let mut correct_chars = 0;
 
     //shuffles the word list and goes through it once so no repeated words
     let mut lesson_words = words.clone();
@@ -32,6 +34,17 @@ fn run_typing_session(words: &Vec<&str>) {
             .expect("Failed to read input");
 
         let input = input.trim();
+
+        //Count the characters for accuracy
+        total_chars += word.len();
+
+        let correct = word
+            .chars()
+            .zip(input.chars())
+            .filter(|(a,b)| a == b)
+            .count();
+
+        correct_chars += correct;
 
         //Checks if what the user typed in matches the word that was chosen if wrong it'll store the wrong word
         if input == *word {
@@ -56,7 +69,7 @@ fn run_typing_session(words: &Vec<&str>) {
     println!("Time taken: {:.2} seconds", duration.as_secs_f64());
 
     //Calculate the accuracy and WPM
-    let accuracy = (score as f64 / attempts as f64) * 100.0;
+    let accuracy = (correct_chars as f64 / total_chars as f64) * 100.0;
     let minutes = duration.as_secs_f64() / 60.0;
     let wpm = score as f64 / minutes;
 
