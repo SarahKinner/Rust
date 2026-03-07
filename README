@@ -1,49 +1,39 @@
-# Project Title (Update)
-
-Add a description of your project here.
+# Typing Practice
+When running the project there's a menu with a select difficulty. Pick a diffculty and begin the session. Once the begins the timer will start for that session and will end once the session end. After it ends it'll show the user their score, list out the words what they got wrong, the time taken, accuracy, and words you got wrong then it'll take you back to the menu where it starts all over again.
 
 ## Instructions for Build and Use
 
 Steps to build and/or run the software:
 
-1. First step here
-2.
-3.
+1. Put this neat command into the terminal: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh  (This allows for rust programs to be runned)
+2. Then put this command into the terminal as well: cargo new TypingPractice (This will make the folder along with all the important stuff that's needed automatically such as main.rs)
+3. Put the code in main.rs and the other files in that folder will automatically update and change with the codes  you make.
 
 Instructions for using the software:
 
-1. First step here
-2.
-3.
+1. Open main.rs and right above the main program press run so it'll run the program
+2. Pick a number based on the difficulty that you want to work on for that session
+3. Then copy the words that are shown to you until the session ends and once the sesison ends you can pick the difficulty again
 
 ## Development Environment
 
 To recreate the development environment, you need the following software and/or libraries with the specified versions:
 
-* First thing here
-*
-*
+* Again just add this code so you can do rust related stuff: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 
 ## Useful Websites to Learn More
 
 I found these websites useful in developing this software:
 
-* [Rust in Visual Studio Code](https://code.visualstudio.com/docs/languages/rust)
-*
-*
+* https://www.w3schools.com/rust/rust_loops.php
+* https://www.w3schools.com/rust/rust_variables.php
+* https://www.w3schools.com/rust/rust_functions.php
 
 ## Future Work
 
 The following items I plan to fix, improve, and/or add to this project in the future:
 
-* [ ] First thing here
-* [ ]
-* [ ]
-
-
-
-Note for later: Had to use this code to make it work: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-cd /Users/sarahkinner/Rust
-cargo new typing_practice
-cd typing_practice
+* I'm thinking of one of those practice typing tests that you can do.
+* Maybe a mixed difficulty where it's just a bunch of sentences that the user has to do
+* Multiple lists for each diffculty so it's not repetitive
